@@ -1,0 +1,13 @@
+.item {
+    text-align: center;
+
+    &:nth-child(2n) {
+        background-color: #e5f3f3;
+    }
+
+    .string {
+        padding: 5px;
+        border: 0.5px solid gray;
+        color: gray
+    }
+}

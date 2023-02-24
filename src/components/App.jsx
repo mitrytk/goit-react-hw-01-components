@@ -9,6 +9,10 @@ import FriendList from "./FriendList/FriendList";
 import FriendListItem from "./FriendList/FriendListItem/FriendListItem";
 import friends from "../friends.json";
 
+import TransactionHistory from "./TransactionHistory/TransactionHistory";
+import TransactionItem from "./TransactionHistory/TransactionItem/TransactionItem";
+import transactions from "../transactions";
+
 
 export const App = () => {
   return (
@@ -34,6 +38,15 @@ export const App = () => {
             isOnline={isOnline}
         />))}
       </FriendList>
+
+      <TransactionHistory>
+          {transactions.map(({id, type, amount, currency}) => (<TransactionItem 
+            key={id}
+            type={type}
+            amount={amount}
+            currency={currency}
+          />))}
+      </TransactionHistory>
     </>
   );
 };
