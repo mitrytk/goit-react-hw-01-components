@@ -5,6 +5,10 @@ import Statistics from "./Statistics/Statistics";
 import data from "../data.json";
 import Item from "./Statistics/Item/Item";
 
+import FriendList from "./FriendList/FriendList";
+import FriendListItem from "./FriendList/FriendListItem/FriendListItem";
+import friends from "../friends.json";
+
 
 export const App = () => {
   return (
@@ -22,6 +26,14 @@ export const App = () => {
         title='Upload stats'>
         {data.map(({id, label, percentage}) => (<Item key={id} label={label} percentage={percentage}/>))}
       </Statistics>
+      <FriendList>
+        {friends.map(({id, avatar, name, isOnline}) => (<FriendListItem
+            key={id} 
+            avatar={avatar}
+            name={name}
+            isOnline={isOnline}
+        />))}
+      </FriendList>
     </>
   );
 };
