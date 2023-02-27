@@ -1,9 +1,9 @@
 import style from "./transactionHistory.module.scss";
 
-const TransactionHistory = (props) => {
-    const {
-        children
-    } = props;
+import TransactionItem from "./TransactionItem/TransactionItem";
+import transactions from "../../transactions";
+
+const TransactionHistory = () => {
 
     return (
         <table className={style.transactionHistory}>
@@ -16,7 +16,12 @@ const TransactionHistory = (props) => {
             </thead>
 
             <tbody className={style.tbody}>
-                {children}
+                {transactions.map(({id, type, amount, currency}) => (<TransactionItem 
+                key={id}
+                type={type}
+                amount={amount}
+                currency={currency}
+                />))}
             </tbody>
         </table>
     )

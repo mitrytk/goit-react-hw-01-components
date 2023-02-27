@@ -1,12 +1,17 @@
 import style from './friendList.module.scss';
 
-const FriendList = (props) => {
-    const {
-        children
-    } = props;
+import FriendListItem from "./FriendListItem/FriendListItem";
+import friends from "../../friends.json";
+
+const FriendList = () => {
     return (
         <ul className={style.friendList}>
-            {children}
+            {friends.map(({id, avatar, name, isOnline}) => (<FriendListItem
+            key={id} 
+            avatar={avatar}
+            name={name}
+            isOnline={isOnline}
+        />))}
         </ul>
     )
 }
